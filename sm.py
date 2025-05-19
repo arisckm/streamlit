@@ -4,6 +4,12 @@ import pickle
 import numpy as np
 import re
 import string
+import sys
+
+# ✅ This must be the first Streamlit command
+st.set_page_config(page_title="IMDB Sentiment Classifier", layout="centered")
+
+st.write(f"Python version: {sys.version}")
 
 # Load trained model
 model = tf.keras.models.load_model("sentiment_model.keras")
@@ -39,8 +45,6 @@ def predict_sentiment(text):
         return "Neutral 😐"
 
 # Streamlit UI
-st.set_page_config(page_title="IMDB Sentiment Classifier", layout="centered")
-
 st.title("🎬 IMDB Movie Review Sentiment Classifier")
 st.markdown("Enter a movie review below and the model will predict if it's **Positive**, **Negative**, or **Neutral**.")
 
